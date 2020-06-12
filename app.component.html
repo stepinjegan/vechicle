@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head><title>VEHICLE MANAGEMENT SYSTEM</title>
+ 
+  </head>
+  <style>
+    table,th,td{
+      border: 5px solid black;
+      padding: 5px;
+    }
+  
+    </style>
+  <body>
+    <div>
+    <form #s="ngForm" name="form"(ngSubmit)="onSubmit(s)">
+      <div class="form-group">
+        <label>Vehicle_Company</label>
+        <input [(ngModel)]="veh.Vechicle_Company" name="Vechicle_Company" type="text" >
+      </div>
+      <div class="form-group">
+        <label>Vehicle_Model</label>
+        <input  [(ngModel)]="veh.Vechicle_Model" name="Vechicle_Model" type="text" >
+      </div>
+      <div class="form-group">
+        <label>Vehicle_Number</label>
+        <input  [(ngModel)]="veh.Vechicle_Number" name="Vechicle_Number" type="text">
+      </div>
+      <div class="form-group">
+        <label>Vehicle_Colour</label>
+        <input [(ngModel)]="veh.Vechicle_Colour" name="Vechicle_Colour" type="text" >
+      </div>
+      
+     
+      <button type="submit" >{{title}}</button>
+    </form> 
+
+   <table id="mytable">
+      <thead>
+        <th>id</th>
+        <th>vechicle_color</th>
+        <th>vechicle_company</th>
+        <th>vechicle_model</th>
+        <th>vechicle_number</th>            
+        <th>Edit</th>
+        <th>Delete</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ItemsArray">
+          <td>{{item.id}}</td>
+          <td>{{item.vechicle_color}}</td>
+          <td>{{item.vechicle_company}}</td>
+          <td>{{item.vechicle_model}}</td>              
+          <td>{{item.vechicle_number}}</td> 
+          <td>
+            
+            <button  id="editbtn"  (click)="edit(item)" type="submit">Edit</button> 
+           
+           
+     
+        </td>
+        <td>
+
+          <button  id="deletebtn"  (click)="delete(item.id)" type="submit">Delete</button> 
+        </td>
+        </tr>
+      </tbody>
+    </table> 
+         
+  
+
+ 
+
+
